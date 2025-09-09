@@ -85,9 +85,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadSavedTitles() {
         chrome.storage.local.get(['customTitles'], function(result) {
+            const recentTitlesContainer = document.querySelector('.recent-titles');
+            if (!recentTitlesContainer) return;
+            recentTitlesContainer.innerHTML = '';
             if (result.customTitles && result.customTitles.length > 0) {
-                // Could implement a "Recent Custom Titles" section here
-                // For now, we'll keep it simple
+                result.customTitles.forEach(title => {
+                    const btn = document.createElement('button');
+                    btn.className = 'recent-title-btn';
+                    btn.textContent = title;
+                    btn.title = title;
+                    btn.addEventListener('click', function() {
+                        customTitleInput.value = title;
+                        customTitleInput.focus();
+                        createCustomTabBtn.disabled = !title.trim();
+                    });
+                    recentTitlesContainer.appendChild(btn);
+                });
+            } else {
+                recentTitlesContainer.innerHTML = '<span class="no-recent">No recent custom titles yet.</span>';
             }
         });
     }
