@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Loading...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .disclaimer {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .original-title {
+            margin-top: 1rem;
+            font-style: italic;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="emoji">🎭</span>
+        <h1>Just for Fun!</h1>
+        <p>This is a fake tab created for entertainment during screen sharing.</p>
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This tab was created using the "Fake Tab" Chrome extension 
+            for harmless fun and entertainment purposes only.
+            <div class="original-title" id="original-title-display"></div>
+        </div>
+    </div>
+
+    <script src="fake_page.js"></script>
+</body>
+</html>
