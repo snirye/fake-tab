@@ -37,10 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to create a fake tab
     function createFakeTab(title) {
+        const encodedTitle = encodeURIComponent(title);
+        const fakePageUrl = chrome.runtime.getURL('fake_page.html') + '?title=' + encodedTitle;
+        
+        console.log('Creating fake tab with title:', title);
+        console.log('Encoded title:', encodedTitle);
+        console.log('Final URL:', fakePageUrl);
+        
         chrome.tabs.create({
-            url: 'data:text/html,<!DOCTYPE html><html><head><title>' + 
-                 encodeHTMLEntities(title) + 
-                 '</title><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;}h1{font-size:2.5rem;text-align:center;text-shadow:0 2px 4px rgba(0,0,0,0.2);}</style></head><body><h1>🎭 Just for Fun!</h1><p style="text-align:center;margin-top:1rem;opacity:0.8;">This is a fake tab created for entertainment during screen sharing.</p></body></html>',
+            url: fakePageUrl,
             active: true
         });
         
