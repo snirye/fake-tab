@@ -1,17 +1,25 @@
 // Popup script for Fake Tab extension
 document.addEventListener('DOMContentLoaded', function() {
-    const presetButtons = document.querySelectorAll('.preset-btn');
+
+    // Render preset buttons dynamically
+    const presetButtonsContainer = document.querySelector('.preset-buttons');
+    if (presetButtonsContainer && Array.isArray(window.TAB_PRESETS)) {
+        presetButtonsContainer.innerHTML = '';
+        window.TAB_PRESETS.forEach(preset => {
+            const btn = document.createElement('button');
+            btn.className = 'preset-btn';
+            btn.setAttribute('data-title', preset.title);
+            btn.innerHTML = `${preset.emoji} ${preset.label}`;
+            btn.addEventListener('click', function() {
+                createFakeTab(preset.title);
+                showSuccessMessage('Tab created!');
+            });
+            presetButtonsContainer.appendChild(btn);
+        });
+    }
+
     const customTitleInput = document.getElementById('customTitle');
     const createCustomTabBtn = document.getElementById('createCustomTab');
-
-    // Handle preset button clicks
-    presetButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const title = this.getAttribute('data-title');
-            createFakeTab(title);
-            showSuccessMessage('Tab created!');
-        });
-    });
 
     // Handle custom title creation
     createCustomTabBtn.addEventListener('click', function() {
@@ -99,14 +107,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const originalCreateFakeTab = createFakeTab;
     createFakeTab = function(title) {
         // Check if it's a custom title (not from presets)
-        const isCustomTitle = !Array.from(presetButtons).some(btn => 
-            btn.getAttribute('data-title') === title
-        );
-        
-        if (isCustomTitle) {
+        const isPreset = Array.isArray(window.TAB_PRESETS) && window.TAB_PRESETS.some(p => p.title === title);
+        if (!isPreset) {
             saveCustomTitle(title);
         }
-        
         originalCreateFakeTab(title);
     };
 });
