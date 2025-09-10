@@ -65,10 +65,9 @@ fake_tab/
 - **Manifest V3**
 - **HTML5 & CSS3**
 - **Vanilla JavaScript**
-- **Chrome APIs:** tabs, storage, contextMenus
+- **Chrome APIs:** storage, contextMenus
 
 ### Permissions
-- `tabs`: Create new tabs
 - `storage`: Save custom titles
 
 

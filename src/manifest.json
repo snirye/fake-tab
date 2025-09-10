@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "Create tabs with custom embarrassing titles for fun during screen sharing",
   "permissions": [
-    "tabs",
     "storage"
   ],
   "action": {
