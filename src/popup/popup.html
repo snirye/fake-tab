@@ -17,8 +17,18 @@
         <div class="custom-section">
             <h2>Custom Title</h2>
             <div class="input-group">
-                <input type="text" id="customTitle" placeholder="Enter your custom embarrassing title..." maxlength="100">
+                <div class="title-emoji-row">
+                    <input type="text" id="customTitle" placeholder="Enter your custom embarrassing title..." maxlength="100">
+                    <button type="button" id="emojiPicker" class="emoji-picker-btn" title="Choose emoji favicon">😀</button>
+                </div>
                 <button id="createCustomTab">Create Tab</button>
+            </div>
+            <div id="emojiPickerPopup" class="emoji-picker-popup hidden">
+                <div class="emoji-picker-header">
+                    <span>Choose Emoji Favicon</span>
+                    <button type="button" id="closeEmojiPicker" class="close-btn">×</button>
+                </div>
+                <div class="emoji-grid" id="emojiGrid"></div>
             </div>
         </div>
 
