@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.setAttribute('data-title', preset.title);
             btn.innerHTML = `${preset.emoji} ${preset.label}`;
             btn.addEventListener('click', function() {
-                createFakeTab(preset.title, null); // Presets don't use custom emoji favicon
+                // Pass preset.emoji so the fake page will use the emoji as the favicon
+                createFakeTab(preset.title, preset.emoji);
                 showSuccessMessage('Tab created!');
             });
             presetButtonsContainer.appendChild(btn);
