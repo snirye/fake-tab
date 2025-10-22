@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         chrome.tabs.create({
             url: fakePageUrl,
-            active: true
+            active: false
         });
         
         // Close the popup after creating the tab

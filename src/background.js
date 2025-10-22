@@ -36,7 +36,7 @@ function createFakeTabWithTitle(title) {
     
     chrome.tabs.create({
         url: fakePageUrl,
-        active: true
+        active: false
     });
 }
 
