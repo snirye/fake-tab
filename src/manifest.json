@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fake Tab - Embarrassing Titles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create tabs with custom embarrassing titles for fun during screen sharing",
   "permissions": [
     "storage"
