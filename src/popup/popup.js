@@ -1,53 +1,24 @@
 // Popup script for Fake Tab extension
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Popular emojis for favicon selection
-    const emojiList = [
-        '😀', '😃', '😄', '😁', '😆', '😅', '🤣', '😂', '🙂', '🙃', '😉', '😊',
-        '😇', '🥰', '😍', '🤩', '😘', '😗', '😚', '😙', '😋', '😛', '😜', '🤪',
-        '😝', '🤑', '🤗', '🤭', '🤫', '🤔', '🤐', '🤨', '😐', '😑', '😶', '😏',
-        '😒', '🙄', '😬', '🤥', '😌', '😔', '😪', '🤤', '😴', '😷', '🤒', '🤕',
-        '🤢', '🤮', '🤧', '🥵', '🥶', '🥴', '😵', '🤯', '🤠', '🥳', '😎', '🤓',
-        '🧐', '😕', '😟', '🙁', '☹️', '😮', '😯', '😲', '😳', '🥺', '😦', '😧',
-        '😨', '😰', '😥', '😢', '😭', '😱', '😖', '😣', '😞', '😓', '😩', '😫',
-        '🥱', '😤', '😡', '😠', '🤬', '😈', '👿', '💀', '☠️', '💩', '🤡', '👹',
-        '👺', '👻', '👽', '👾', '🤖', '😺', '😸', '😹', '😻', '😼', '😽', '🙀',
-        '😿', '😾', '❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💔',
-        '❣️', '💕', '💞', '💓', '💗', '💖', '💘', '💝', '💟', '☮️', '✝️', '☪️',
-        '🕉️', '☸️', '✡️', '🔯', '🕎', '☯️', '☦️', '🛐', '⛎', '♈', '♉', '♊'
-    ];
-
     let selectedEmoji = '😀'; // Default emoji
-
-    // Initialize emoji grid
-    const emojiGrid = document.getElementById('emojiGrid');
-    if (emojiGrid) {
-        emojiList.forEach(emoji => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'emoji-option';
-            btn.textContent = emoji;
-            btn.addEventListener('click', function() {
-                selectedEmoji = emoji;
-                document.getElementById('emojiPicker').textContent = emoji;
-                
-                // Update selected state
-                document.querySelectorAll('.emoji-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                btn.classList.add('selected');
-                
-                // Close picker
-                document.getElementById('emojiPickerPopup').classList.add('hidden');
-            });
-            emojiGrid.appendChild(btn);
-        });
-    }
 
     // Emoji picker button
     const emojiPickerBtn = document.getElementById('emojiPicker');
     const emojiPickerPopup = document.getElementById('emojiPickerPopup');
     const closeEmojiPicker = document.getElementById('closeEmojiPicker');
+    const emojiPickerElement = document.querySelector('emoji-picker');
+
+    // Handle emoji selection from emoji-picker-element
+    if (emojiPickerElement) {
+        emojiPickerElement.addEventListener('emoji-click', function(event) {
+            selectedEmoji = event.detail.unicode;
+            document.getElementById('emojiPicker').textContent = selectedEmoji;
+            
+            // Close picker
+            document.getElementById('emojiPickerPopup').classList.add('hidden');
+        });
+    }
 
     if (emojiPickerBtn && emojiPickerPopup) {
         emojiPickerBtn.addEventListener('click', function(e) {
