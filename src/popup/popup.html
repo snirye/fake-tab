@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake Tab</title>
     <link rel="stylesheet" href="popup.css">
+    <script type="module" src="../lib/index.js"></script>
 </head>
 <body>
     <div class="container">
@@ -28,7 +29,9 @@
                     <span>Choose Emoji Favicon</span>
                     <button type="button" id="closeEmojiPicker" class="close-btn">×</button>
                 </div>
-                <div class="emoji-grid" id="emojiGrid"></div>
+                <div class="emoji-picker-container">
+                    <emoji-picker></emoji-picker>
+                </div>
             </div>
         </div>
 

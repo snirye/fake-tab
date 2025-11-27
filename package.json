@@ -1,0 +1,15 @@
+{
+  "name": "fake-tab",
+  "version": "1.0.0",
+  "description": "Fake Tab is a playful Chrome extension that lets you instantly open tabs with custom or preset embarrassing titles—perfect for harmless fun during screen sharing or video calls. All titles are safe and meant for entertainment only.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "emoji-picker-element": "^1.28.0"
+  }
+}
