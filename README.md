@@ -1,12 +1,12 @@
 
-# 🎭 Fake Tab - Embarrassing Titles Chrome Extension
+# 🎭 Fake Tab - Funny Tab Titles
 
-Fake Tab is a playful Chrome extension that lets you instantly open tabs with custom or preset embarrassing titles—perfect for harmless fun during screen sharing or video calls. All titles are safe and meant for entertainment only.
+Fake Tab is a playful Chrome extension that lets you instantly open tabs with custom or preset funny titles—perfect for harmless fun during screen sharing or video calls. All titles are safe and meant for entertainment only.
 
 
 ## Features
 
-- **Quick Presets:** 6 ready-to-use embarrassing tab titles
+- **Quick Presets:** 6 ready-to-use funny tab titles
 - **Custom Titles:** Make your own funny tab titles
 - **Minimalist Design:** Clean, user-friendly popup
 - **Instant Creation:** One-click to open a new tab
