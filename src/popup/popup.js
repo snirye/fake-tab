@@ -10,13 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const emojiPickerElement = document.querySelector('emoji-picker');
 
     // Handle emoji selection from emoji-picker-element
+    // Wait for the custom element to be defined if not already
     if (emojiPickerElement) {
-        emojiPickerElement.addEventListener('emoji-click', function(event) {
-            selectedEmoji = event.detail.unicode;
-            document.getElementById('emojiPicker').textContent = selectedEmoji;
-            
-            // Close picker
-            document.getElementById('emojiPickerPopup').classList.add('hidden');
+        customElements.whenDefined('emoji-picker').then(() => {
+            emojiPickerElement.addEventListener('emoji-click', function(event) {
+                selectedEmoji = event.detail.unicode;
+                document.getElementById('emojiPicker').textContent = selectedEmoji;
+                
+                // Close picker
+                document.getElementById('emojiPickerPopup').classList.add('hidden');
+            });
         });
     }
 
