@@ -1,4 +1,4 @@
-// Embarrassing tab title presets for Fake Tab extension
+// Funny tab title presets for Fake Tab extension
 window.TAB_PRESETS = [
   { emoji: '🧪', label: 'Neural Drift', title: 'Neural Net Daydreams' },
   { emoji: '💔', label: 'Dating App Help', title: 'Eat Wood, Its Good!' },
